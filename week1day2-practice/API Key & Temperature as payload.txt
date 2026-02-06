@@ -1,0 +1,132 @@
+cURL input:
+
+postman request POST 'http://localhost:7860/api/v1/run/cd1c50b0-c0c0-4ec5-92b9-845a7d46c830' \
+  --header 'x-api-key: sk-C8sLd8qo7TipD4Dru3VqVi6dOT8d4rkSARndNMQ9dHE' \
+  --header 'Content-Type: application/json' \
+  --body '{
+    "output_type": "chat",
+    "input_type": "chat",
+    "input_value": "Generate positive and negative test cases with test data for upi payment self transfer",
+    "tweaks": {
+        "GroqModel-R4qjw": {
+            "api_key": "GroqAPI-Key",
+            "temperature": 0.6
+        }
+    }
+}'
+
+
+Response:
+
+{
+    "session_id": "cd1c50b0-c0c0-4ec5-92b9-845a7d46c830",
+    "outputs": [
+        {
+            "inputs": {
+                "input_value": "Generate positive and negative test cases with test data for upi payment self transfer"
+            },
+            "outputs": [
+                {
+                    "results": {
+                        "message": {
+                            "text_key": "text",
+                            "data": {
+                                "timestamp": "2026-02-06 04:35:02 UTC",
+                                "sender": "Machine",
+                                "sender_name": "AI",
+                                "session_id": "cd1c50b0-c0c0-4ec5-92b9-845a7d46c830",
+                                "context_id": "",
+                                "text": "TC_UP_001\nTitle: Successful UPI Payment Self Transfer\nPreconditions: User is logged in with an active account and sufficient balance\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer\n5. Confirm transaction\nExpected Result: Transaction completes successfully and confirmation is shown\n\nTC_UP_002\nTitle: UPI Payment Self Transfer with Insufficient Balance\nPreconditions: User is logged in with an active account but insufficient balance\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer (exceeding current balance)\n5. Confirm transaction\nExpected Result: Error message is shown indicating insufficient balance\n\nTC_UP_003\nTitle: UPI Payment Self Transfer with Invalid Recipient UPI ID\nPreconditions: User is logged in with an active account\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter incorrect recipient's UPI ID\n4. Enter amount to transfer\n5. Confirm transaction\nExpected Result: Error message is shown indicating invalid recipient UPI ID\n\nTC_UP_004\nTitle: UPI Payment Self Transfer with Daily Limit Exceeded\nPreconditions: User is logged in with an active account and has exceeded daily transfer limit\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer (exceeding daily limit)\n5. Confirm transaction\nExpected Result: Error message is shown indicating daily transfer limit exceeded\n\nTC_UP_005\nTitle: UPI Payment Self Transfer with Network Issue\nPreconditions: User is logged in with an active account\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Simulate network failure (e.g., by disconnecting internet)\n5. Confirm transaction\nExpected Result: Error message is shown indicating network issue",
+                                "files": [],
+                                "error": false,
+                                "edit": false,
+                                "properties": {
+                                    "text_color": null,
+                                    "background_color": null,
+                                    "edited": false,
+                                    "source": {
+                                        "id": "GroqModel-R4qjw",
+                                        "display_name": "Groq",
+                                        "source": "llama-3.1-8b-instant"
+                                    },
+                                    "icon": null,
+                                    "allow_markdown": false,
+                                    "positive_feedback": null,
+                                    "state": "complete",
+                                    "targets": []
+                                },
+                                "category": "message",
+                                "content_blocks": [],
+                                "id": "69712b8f-9a9d-48ee-ab30-6169f0f6b20f",
+                                "flow_id": "cd1c50b0-c0c0-4ec5-92b9-845a7d46c830",
+                                "duration": null
+                            },
+                            "default_value": "",
+                            "text": "TC_UP_001\nTitle: Successful UPI Payment Self Transfer\nPreconditions: User is logged in with an active account and sufficient balance\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer\n5. Confirm transaction\nExpected Result: Transaction completes successfully and confirmation is shown\n\nTC_UP_002\nTitle: UPI Payment Self Transfer with Insufficient Balance\nPreconditions: User is logged in with an active account but insufficient balance\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer (exceeding current balance)\n5. Confirm transaction\nExpected Result: Error message is shown indicating insufficient balance\n\nTC_UP_003\nTitle: UPI Payment Self Transfer with Invalid Recipient UPI ID\nPreconditions: User is logged in with an active account\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter incorrect recipient's UPI ID\n4. Enter amount to transfer\n5. Confirm transaction\nExpected Result: Error message is shown indicating invalid recipient UPI ID\n\nTC_UP_004\nTitle: UPI Payment Self Transfer with Daily Limit Exceeded\nPreconditions: User is logged in with an active account and has exceeded daily transfer limit\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer (exceeding daily limit)\n5. Confirm transaction\nExpected Result: Error message is shown indicating daily transfer limit exceeded\n\nTC_UP_005\nTitle: UPI Payment Self Transfer with Network Issue\nPreconditions: User is logged in with an active account\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Simulate network failure (e.g., by disconnecting internet)\n5. Confirm transaction\nExpected Result: Error message is shown indicating network issue",
+                            "sender": "Machine",
+                            "sender_name": "AI",
+                            "files": [],
+                            "session_id": "cd1c50b0-c0c0-4ec5-92b9-845a7d46c830",
+                            "context_id": "",
+                            "timestamp": "2026-02-06T04:35:02+00:00",
+                            "flow_id": "cd1c50b0-c0c0-4ec5-92b9-845a7d46c830",
+                            "error": false,
+                            "edit": false,
+                            "properties": {
+                                "text_color": null,
+                                "background_color": null,
+                                "edited": false,
+                                "source": {
+                                    "id": "GroqModel-R4qjw",
+                                    "display_name": "Groq",
+                                    "source": "llama-3.1-8b-instant"
+                                },
+                                "icon": null,
+                                "allow_markdown": false,
+                                "positive_feedback": null,
+                                "state": "complete",
+                                "targets": []
+                            },
+                            "category": "message",
+                            "content_blocks": [],
+                            "duration": null
+                        }
+                    },
+                    "artifacts": {
+                        "message": "TC_UP_001\n\nTitle: Successful UPI Payment Self Transfer\n\nPreconditions: User is logged in with an active account and sufficient balance\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Enter amount to transfer\n\n5. Confirm transaction\n\nExpected Result: Transaction completes successfully and confirmation is shown\n\nTC_UP_002\n\nTitle: UPI Payment Self Transfer with Insufficient Balance\n\nPreconditions: User is logged in with an active account but insufficient balance\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Enter amount to transfer (exceeding current balance)\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating insufficient balance\n\nTC_UP_003\n\nTitle: UPI Payment Self Transfer with Invalid Recipient UPI ID\n\nPreconditions: User is logged in with an active account\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter incorrect recipient's UPI ID\n\n4. Enter amount to transfer\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating invalid recipient UPI ID\n\nTC_UP_004\n\nTitle: UPI Payment Self Transfer with Daily Limit Exceeded\n\nPreconditions: User is logged in with an active account and has exceeded daily transfer limit\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Enter amount to transfer (exceeding daily limit)\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating daily transfer limit exceeded\n\nTC_UP_005\n\nTitle: UPI Payment Self Transfer with Network Issue\n\nPreconditions: User is logged in with an active account\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Simulate network failure (e.g., by disconnecting internet)\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating network issue",
+                        "sender": "Machine",
+                        "sender_name": "AI",
+                        "files": [],
+                        "type": "object"
+                    },
+                    "outputs": {
+                        "message": {
+                            "message": "TC_UP_001\nTitle: Successful UPI Payment Self Transfer\nPreconditions: User is logged in with an active account and sufficient balance\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer\n5. Confirm transaction\nExpected Result: Transaction completes successfully and confirmation is shown\n\nTC_UP_002\nTitle: UPI Payment Self Transfer with Insufficient Balance\nPreconditions: User is logged in with an active account but insufficient balance\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer (exceeding current balance)\n5. Confirm transaction\nExpected Result: Error message is shown indicating insufficient balance\n\nTC_UP_003\nTitle: UPI Payment Self Transfer with Invalid Recipient UPI ID\nPreconditions: User is logged in with an active account\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter incorrect recipient's UPI ID\n4. Enter amount to transfer\n5. Confirm transaction\nExpected Result: Error message is shown indicating invalid recipient UPI ID\n\nTC_UP_004\nTitle: UPI Payment Self Transfer with Daily Limit Exceeded\nPreconditions: User is logged in with an active account and has exceeded daily transfer limit\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Enter amount to transfer (exceeding daily limit)\n5. Confirm transaction\nExpected Result: Error message is shown indicating daily transfer limit exceeded\n\nTC_UP_005\nTitle: UPI Payment Self Transfer with Network Issue\nPreconditions: User is logged in with an active account\nSteps:\n1. Navigate to UPI Payment\n2. Select Self Transfer option\n3. Enter recipient's UPI ID as own UPI ID\n4. Simulate network failure (e.g., by disconnecting internet)\n5. Confirm transaction\nExpected Result: Error message is shown indicating network issue",
+                            "type": "text"
+                        }
+                    },
+                    "logs": {
+                        "message": []
+                    },
+                    "messages": [
+                        {
+                            "message": "TC_UP_001\n\nTitle: Successful UPI Payment Self Transfer\n\nPreconditions: User is logged in with an active account and sufficient balance\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Enter amount to transfer\n\n5. Confirm transaction\n\nExpected Result: Transaction completes successfully and confirmation is shown\n\nTC_UP_002\n\nTitle: UPI Payment Self Transfer with Insufficient Balance\n\nPreconditions: User is logged in with an active account but insufficient balance\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Enter amount to transfer (exceeding current balance)\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating insufficient balance\n\nTC_UP_003\n\nTitle: UPI Payment Self Transfer with Invalid Recipient UPI ID\n\nPreconditions: User is logged in with an active account\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter incorrect recipient's UPI ID\n\n4. Enter amount to transfer\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating invalid recipient UPI ID\n\nTC_UP_004\n\nTitle: UPI Payment Self Transfer with Daily Limit Exceeded\n\nPreconditions: User is logged in with an active account and has exceeded daily transfer limit\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Enter amount to transfer (exceeding daily limit)\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating daily transfer limit exceeded\n\nTC_UP_005\n\nTitle: UPI Payment Self Transfer with Network Issue\n\nPreconditions: User is logged in with an active account\n\nSteps:\n\n1. Navigate to UPI Payment\n\n2. Select Self Transfer option\n\n3. Enter recipient's UPI ID as own UPI ID\n\n4. Simulate network failure (e.g., by disconnecting internet)\n\n5. Confirm transaction\n\nExpected Result: Error message is shown indicating network issue",
+                            "sender": "Machine",
+                            "sender_name": "AI",
+                            "session_id": "cd1c50b0-c0c0-4ec5-92b9-845a7d46c830",
+                            "stream_url": null,
+                            "component_id": "ChatOutput-nOz3u",
+                            "files": [],
+                            "type": "text"
+                        }
+                    ],
+                    "timedelta": null,
+                    "duration": null,
+                    "component_display_name": "Chat Output",
+                    "component_id": "ChatOutput-nOz3u",
+                    "used_frozen_result": false
+                }
+            ]
+        }
+    ]
+}
