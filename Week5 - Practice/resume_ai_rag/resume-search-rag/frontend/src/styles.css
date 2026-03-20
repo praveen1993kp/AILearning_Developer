@@ -1,0 +1,13 @@
+html,body,#root { height: 100%; margin: 0 }
+body { font-family: Inter, Arial, sans-serif; background: #f7f7fb; color: #111 }
+
+.results-list { list-style: none; padding: 0; margin: 0 }
+.result-item { padding: 12px 8px; border-bottom: 1px solid #eee; display: block }
+.result-meta { display:flex; gap:12px; align-items:center; margin-bottom:6px }
+.result-id { font-weight:700 }
+.result-source { color:#666; font-size:0.9rem }
+.badge { background:#eef6ff; color:#036; padding:2px 8px; border-radius:999px; font-size:0.75rem }
+.result-snippet { margin-top:6px; color:#111; white-space: pre-wrap; word-break: break-word; line-height:1.4 }
+.result-summary { margin-top:8px; font-style:italic; color:#333 }
+
+.no-results { color:#666 }

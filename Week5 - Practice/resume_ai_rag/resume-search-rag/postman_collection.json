@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Resume Search RAG - Local",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Health - status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1","health"]
+        }
+      }
+    },
+    {
+      "name": "Health - DB",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/health/db",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1","health","db"]
+        }
+      }
+    },
+    {
+      "name": "Embeddings - generate",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"input\": \"Senior backend engineer with 8 years experience in Node.js and MongoDB\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/v1/embeddings", "host": ["{{baseUrl}}"], "path": ["v1","embeddings"] }
+      }
+    },
+    {
+      "name": "Search - BM25",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"Node.js senior backend\",\n  \"topK\": 10\n}" },
+        "url": { "raw": "{{baseUrl}}/v1/search/bm25", "host": ["{{baseUrl}}"], "path": ["v1","search","bm25"] }
+      }
+    },
+    {
+      "name": "Search - Vector",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"Node.js senior backend\",\n  \"topK\": 10\n}" },
+        "url": { "raw": "{{baseUrl}}/v1/search/vector", "host": ["{{baseUrl}}"], "path": ["v1","search","vector"] }
+      }
+    },
+    {
+      "name": "Search - Hybrid",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"Node.js senior backend\",\n  \"options\": { \"topK\": 10 }\n}" },
+        "url": { "raw": "{{baseUrl}}/v1/search/hybrid", "host": ["{{baseUrl}}"], "path": ["v1","search","hybrid"] }
+      }
+    },
+    {
+      "name": "Search - End-to-End (pipeline)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"Node.js senior backend\",\n  \"options\": { \"topK\": 10, \"rerankTopN\": 5, \"summarize\": true }\n}" },
+        "url": { "raw": "{{baseUrl}}/v1/search", "host": ["{{baseUrl}}"], "path": ["v1","search"] }
+      }
+    },
+    {
+      "name": "Search - Rerank (POST)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"Node.js senior backend\",\n  \"candidates\": [ { \"id\": \"1\", \"text\": \"Experienced Node.js engineer\" } ],\n  \"topK\": 5\n}" },
+        "url": { "raw": "{{baseUrl}}/v1/search/rerank", "host": ["{{baseUrl}}"], "path": ["v1","search","rerank"] }
+      }
+    },
+    {
+      "name": "Search - Rerank (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/search/rerank?query=Node.js%20senior&candidates=[{\"id\":\"1\",\"text\":\"Experienced%20Node.js%20engineer\"}]&topK=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1","search","rerank"],
+          "query": [
+            { "key": "query", "value": "Node.js senior" },
+            { "key": "candidates", "value": "[{\"id\":\"1\",\"text\":\"Experienced Node.js engineer\"}]" },
+            { "key": "topK", "value": "5" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search - Summarize (POST)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": { "mode": "raw", "raw": "{\n  \"query\": \"Node.js senior backend\",\n  \"candidate\": { \"id\": \"1\", \"text\": \"Experienced Node.js engineer\" },\n  \"style\": \"short\",\n  \"maxTokens\": 120\n}" },
+        "url": { "raw": "{{baseUrl}}/v1/search/summarize", "host": ["{{baseUrl}}"], "path": ["v1","search","summarize"] }
+      }
+    },
+    {
+      "name": "Search - Summarize (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/search/summarize?query=Node.js%20senior&candidate={%22id%22:%221%22,%22text%22:%22Experienced%20Node.js%20engineer%22}&style=short&maxTokens=120",
+          "host": ["{{baseUrl}}"],
+          "path": ["v1","search","summarize"],
+          "query": [
+            { "key": "query", "value": "Node.js senior" },
+            { "key": "candidate", "value": "{\"id\":\"1\",\"text\":\"Experienced Node.js engineer\"}" },
+            { "key": "style", "value": "short" },
+            { "key": "maxTokens", "value": "120" }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" }
+  ]
+}
